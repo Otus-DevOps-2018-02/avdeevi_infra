@@ -1,11 +1,11 @@
 # avdeevi_infra
 avdeevi Infra repository
 
-# Подключаемся someinternalhost  в одну команду посредством  ssh-proxy:
-
+ Подключаемся someinternalhost  в одну команду посредством  ssh-proxy:
+```
    ssh -o ProxyCommand='ssh -W %h:%p igor.avdeev@35.204.154.86' igor.avdeev@10.164.0.3
-
-# Подключения к someinternalhost  простой командой вида 
+```
+ Для подключения к someinternalhost  простой командой вида 
 
 ```
   ssh someinternalhost
@@ -26,7 +26,8 @@ Host someinternalhost
 ```
 
 # Описание полученной конфигурации
-
+```
 bastion_IP = 35.204.154.86
 someinternalhost_IP = 10.164.0.3 
+```
 
