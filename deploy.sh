@@ -5,7 +5,7 @@ cd ~/
 # клонируем репу
 git clone -b monolith https://github.com/express42/reddit.git
 # Ставим зависимости
-cd monolith &&  bundle install
+cd reddit &&  bundle install
 # Стартуем приложение
 puma -d 
 # Выводим на экран информацию о приложении
