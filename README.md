@@ -31,3 +31,32 @@ bastion_IP = 35.204.154.86
 someinternalhost_IP = 10.164.0.3 
 ```
 
+# Доманшее задание номер 5
+### Команда для создания  инстанса с работающим приложением с помощью  startup script
+
+```
+gcloud compute instances create reddit-app  \
+--boot-disk-size=10GB   \
+--image-family ubuntu-1604-lts   \
+--image-project=ubuntu-os-cloud   \
+--machine-type=g1-small   \
+--tags puma-server   \
+--restart-on-failure \
+--metadata-from-file startup-script=startup-script.sh
+```
+### Команда для создания правила firewall разрешающего работу приложения по 9292 tcp порту
+
+```
+gcloud compute firewall-rules create puma-server \
+--allow=tcp:9292 \
+--direction=INGRESS \
+--priority=1000 \
+--source-ranges=0.0.0.0/0 \
+--target-tags=puma-server 
+```
+### Информация о приложении 
+```
+testapp_IP = 35.204.90.81
+testapp_port = 9292 
+```
+
