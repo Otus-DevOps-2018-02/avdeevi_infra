@@ -25,7 +25,7 @@ Host someinternalhost
     ProxyCommand ssh -W %h:%p bastion       
 ```
 
-# Описание полученной конфигурации
+### Описание полученной конфигурации
 ```
 bastion_IP = 35.204.154.86
 someinternalhost_IP = 10.164.0.3 
@@ -59,4 +59,10 @@ gcloud compute firewall-rules create puma-server \
 testapp_IP = 35.204.90.81
 testapp_port = 9292 
 ```
+
+# Домашнее задание номер 6
+
+ - Создан парметризированный packer-темплейт для сборки backed-образа с предустановленными  Ruby и MongoDB (ubuntu16.json). 
+ - Создан packer-темплейт для сборки immutable сервера с предустановленным приложением и всеми зависимостями (immutable.json).
+ - Создан shell-скрипт для настройки и запуска виртуальной машины из образа reddit-full (config-scripts/create-reddit-vm.sh).  
 
