@@ -23,3 +23,8 @@ variable google_zone {
   description = "Zone"
   default     = "europe-west1-b"
 }
+
+variable instance_count {
+  description = "Count"
+  default     = "2"
+}
