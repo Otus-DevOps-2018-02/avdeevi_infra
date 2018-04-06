@@ -1,6 +1,6 @@
 project = "infra-000000"
-public_key_path  = "~/.ssh/id_rsa.pub"
-private_key_path = "~/.ssh/id_rsa"
+public_key_path  = "~/.ssh/appuser/id_rsa.pub"
+private_key_path = "~/.ssh/appuser/id_rsa"
 disk_image = "reddit-base"
 google_zone = "europe-west1-b"
 
