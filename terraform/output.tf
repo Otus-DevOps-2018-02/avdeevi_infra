@@ -4,6 +4,4 @@ output "app_external_ip" {
 
 output "balancer_external_ip" {
   value = "${google_compute_global_forwarding_rule.my-app-forwarding-rule.ip_address}"
-
 }
-

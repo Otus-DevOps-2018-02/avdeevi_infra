@@ -53,8 +53,8 @@ resource "google_compute_http_health_check" "puma-check" {
 }
 
 resource "google_compute_firewall" "firewall_load_balancer" {
-  name    = "allow-from-load-balancer"
-  network = "default"
+  name      = "allow-from-load-balancer"
+  network   = "default"
   direction = "EGRESS"
 
   allow {
@@ -62,8 +62,7 @@ resource "google_compute_firewall" "firewall_load_balancer" {
     ports    = ["9292"]
   }
 
-  target_tags   = ["reddit-app"]
-#  source_ranges = ["0.0.0.0/0"]
+  target_tags = ["reddit-app"]
+
+  #  source_ranges = ["0.0.0.0/0"]
 }
-
-
