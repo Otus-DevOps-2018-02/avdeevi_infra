@@ -26,5 +26,5 @@ variable google_zone {
 
 variable instance_count {
   description = "Count"
-  default     = "2"
+  default     = "1"
 }
