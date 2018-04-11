@@ -1,6 +1,6 @@
 resource "google_compute_instance" "db" {
   count        = "${var.instance_count}"
-  name         = "reddit-db-${count.index}"
+  name         = "${var.env}-reddit-db-${count.index}"
   machine_type = "g1-small"
   zone         = "${var.google_zone}"
 
@@ -15,7 +15,7 @@ resource "google_compute_instance" "db" {
     access_config = {}
   }
 
-  tags = ["reddit-db"]
+  tags = ["reddit-db","${var.env}"]
 
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
@@ -30,7 +30,7 @@ resource "google_compute_instance" "db" {
 }
 
 resource "google_compute_firewall" "firewall_mongo" {
-  name    = "allow-mongo-default"
+  name    = "${var.env}-allow-mongo-default"
   network = "default"
 
   allow {
@@ -41,3 +41,4 @@ resource "google_compute_firewall" "firewall_mongo" {
   target_tags = ["reddit-db"]
   source_tags = ["reddit-app"]
 }
+

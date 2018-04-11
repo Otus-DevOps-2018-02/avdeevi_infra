@@ -1,6 +1,6 @@
 resource "google_compute_instance" "app" {
   count        = "${var.instance_count}"
-  name         = "reddit-app-${count.index}"
+  name         = "${var.env}-reddit-app-${count.index}"
   machine_type = "g1-small"
   zone         = "${var.google_zone}"
 
@@ -18,7 +18,7 @@ resource "google_compute_instance" "app" {
     }
   }
 
-  tags = ["reddit-app"]
+  tags = ["reddit-app","${var.env}"]
 
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
@@ -31,18 +31,23 @@ resource "google_compute_instance" "app" {
     private_key = "${file(var.private_key_path)}"
   }
 
+  provisioner "local-exec" {
+   command = "sed -i 's/Environment=DATABASE_URL=.*$/Environment=DATABASE_URL=${var.database_address}:27017/' ../modules/app/files/puma.service"
+  }
+
   provisioner "file" {
-    source      = "files/puma.service"
+    source      = "../modules/app/files/puma.service"
     destination = "/tmp/puma.service"
   }
 
   provisioner "remote-exec" {
-    script = "files/deploy.sh"
+    script = "../modules/app/files/deploy.sh"
   }
+
 }
 
 resource "google_compute_firewall" "firewall_puma" {
-  name    = "default-allow-puma"
+  name    = "default-allow-puma-${var.env}"
   network = "default"
 
   allow {
@@ -55,5 +60,6 @@ resource "google_compute_firewall" "firewall_puma" {
 }
 
 resource "google_compute_address" "app_ip" {
-  name = "reddit-app-ip"
+  name = "reddit-app-ip-${var.env}"
 }
+
