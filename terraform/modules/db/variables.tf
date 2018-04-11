@@ -22,8 +22,6 @@ variable db_disk_image {
 }
 
 variable env {
- description = "enviropment"
- default = "stage"
-
+  description = "enviropment"
+  default     = "stage"
 }
-

@@ -10,7 +10,7 @@ module "app" {
   private_key_path = "${var.private_key_path}"
   google_zone      = "${var.google_zone}"
   app_disk_image   = "${var.app_disk_image}"
-  env = "${var.env}"
+  env              = "${var.env}"
 }
 
 module "db" {
@@ -19,13 +19,11 @@ module "db" {
   private_key_path = "${var.private_key_path}"
   google_zone      = "${var.google_zone}"
   db_disk_image    = "${var.db_disk_image}"
-  env = "${var.env}"
-
+  env              = "${var.env}"
 }
 
 module "vpc" {
   source        = "../modules/vpc"
   source_ranges = ["91.220.181.76/32"]
-  env = "${var.env}"
-
+  env           = "${var.env}"
 }

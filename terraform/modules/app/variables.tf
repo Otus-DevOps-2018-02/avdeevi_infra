@@ -22,11 +22,10 @@ variable app_disk_image {
 }
 
 variable env {
- description = "enviropment"
- default = "stage"
-
+  description = "enviropment"
+  default     = "stage"
 }
 
 variable database_address {
- default = "127.0.0.1" 
+  default = "127.0.0.1"
 }

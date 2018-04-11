@@ -18,7 +18,7 @@ resource "google_compute_instance" "app" {
     }
   }
 
-  tags = ["reddit-app","${var.env}"]
+  tags = ["reddit-app", "${var.env}"]
 
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
@@ -32,7 +32,7 @@ resource "google_compute_instance" "app" {
   }
 
   provisioner "local-exec" {
-   command = "sed -i 's/Environment=DATABASE_URL=.*$/Environment=DATABASE_URL=${var.database_address}:27017/' ../modules/app/files/puma.service"
+    command = "sed -i 's/Environment=DATABASE_URL=.*$/Environment=DATABASE_URL=${var.database_address}:27017/' ../modules/app/files/puma.service"
   }
 
   provisioner "file" {
@@ -43,7 +43,6 @@ resource "google_compute_instance" "app" {
   provisioner "remote-exec" {
     script = "../modules/app/files/deploy.sh"
   }
-
 }
 
 resource "google_compute_firewall" "firewall_puma" {
@@ -62,4 +61,3 @@ resource "google_compute_firewall" "firewall_puma" {
 resource "google_compute_address" "app_ip" {
   name = "reddit-app-ip-${var.env}"
 }
-

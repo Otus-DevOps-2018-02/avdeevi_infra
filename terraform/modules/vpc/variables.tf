@@ -4,5 +4,5 @@ variable source_ranges {
 }
 
 variable env {
-  default = "stage"	
+  default = "stage"
 }

@@ -31,7 +31,6 @@ variable db_disk_image {
 }
 
 variable env {
-  description = "enviropment"	
-  default =  "prod"
+  description = "enviropment"
+  default     = "prod"
 }
-
