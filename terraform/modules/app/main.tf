@@ -31,18 +31,6 @@ resource "google_compute_instance" "app" {
     private_key = "${file(var.private_key_path)}"
   }
 
-#  provisioner "local-exec" {
-#    command = "sed -i 's/Environment=DATABASE_URL=.*$/Environment=DATABASE_URL=${var.database_address}:27017/' ../modules/app/files/puma.service"
-#  }
-#
-#  provisioner "file" {
-#    source      = "../modules/app/files/puma.service"
-#    destination = "/tmp/puma.service"
-#  }
-#
-#  provisioner "remote-exec" {
-#    script = "../modules/app/files/deploy.sh"
-#  }
 }
 
 resource "google_compute_firewall" "firewall_puma" {
@@ -52,6 +40,19 @@ resource "google_compute_firewall" "firewall_puma" {
   allow {
     protocol = "tcp"
     ports    = ["9292"]
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["reddit-app"]
+}
+
+resource "google_compute_firewall" "firewall_http" {
+  name    = "default-allow-http-${var.env}"
+  network = "default"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
   }
 
   source_ranges = ["0.0.0.0/0"]
