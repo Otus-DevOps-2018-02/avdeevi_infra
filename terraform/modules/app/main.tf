@@ -31,18 +31,18 @@ resource "google_compute_instance" "app" {
     private_key = "${file(var.private_key_path)}"
   }
 
-  provisioner "local-exec" {
-    command = "sed -i 's/Environment=DATABASE_URL=.*$/Environment=DATABASE_URL=${var.database_address}:27017/' ../modules/app/files/puma.service"
-  }
-
-  provisioner "file" {
-    source      = "../modules/app/files/puma.service"
-    destination = "/tmp/puma.service"
-  }
-
-  provisioner "remote-exec" {
-    script = "../modules/app/files/deploy.sh"
-  }
+#  provisioner "local-exec" {
+#    command = "sed -i 's/Environment=DATABASE_URL=.*$/Environment=DATABASE_URL=${var.database_address}:27017/' ../modules/app/files/puma.service"
+#  }
+#
+#  provisioner "file" {
+#    source      = "../modules/app/files/puma.service"
+#    destination = "/tmp/puma.service"
+#  }
+#
+#  provisioner "remote-exec" {
+#    script = "../modules/app/files/deploy.sh"
+#  }
 }
 
 resource "google_compute_firewall" "firewall_puma" {
