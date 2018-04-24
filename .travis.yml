@@ -5,7 +5,7 @@ before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-02/run.sh |
   bash
 
-- bash ./play-travis/super_tests.sh
+#- bash ./play-travis/super_tests.sh
 
 notifications:
   slack:
