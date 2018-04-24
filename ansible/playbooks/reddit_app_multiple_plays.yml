@@ -4,13 +4,13 @@
   tags: db-tag
   become: true
   vars:
-    mongo_bind_ip: 0.0.0.0 
+    mongo_bind_ip: 0.0.0.0
   tasks:
   - name: Change mongo config file
     template:
       src: templates/mongod.conf.j2
       dest: /etc/mongod.conf
-      mode: 0644 
+      mode: 0644
     notify: restart_mongod
 
 
@@ -36,7 +36,7 @@
         src: templates/db_config.j2
         dest: /home/appuser/db_config
         owner: appuser
-        group: appuser 
+        group: appuser
       tags: app-tag
 
     - name: enable puma
