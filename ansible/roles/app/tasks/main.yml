@@ -15,7 +15,7 @@
     src: db_config.j2
     dest: /home/appuser/db_config
     owner: appuser
-    group: appuser 
+    group: appuser
 
 - name: enable puma
   systemd: name=puma enabled=yes
