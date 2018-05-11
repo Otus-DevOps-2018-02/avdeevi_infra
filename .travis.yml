@@ -4,6 +4,9 @@ language: bash
 before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-02/run.sh |
   bash
+
+#- bash ./play-travis/super_tests.sh
+
 notifications:
   slack:
     secure: YN/V8OrIl8X6wBUJAb+I71Xg2k+oPS/0Sx3PJLb71tq+gmnAmnWWgNxQGPSmW6DqyP+Lt6ym5lHBjURyF9rzF9091Btpb0qtmFresrFMRzB5XfXzCDiZlhoWoI+qZEguXBgcP18TyBZwR87E4eFxM0uSiFA9nolVCgxH3teHpi4VAgYgFAwsFuHqKavfhDAvC6olh1tbTFOs5Rjwozfmh0eRQxG18qoejZb91YDno+XEGu5d5wrvwM2QLs2Ld5Z019JRSu0gimSxNehEwzS7Uh7PGqkRVH36wlcN/I2z+5bHgCJW3pUr+ak4tUqS0x1Ccf6gBEFcPLHNaW2Lg6FV3f7N4XRrupp5TG4JAuTrHECLJNsKwDJ/qPA917TKn0qNtuO+KYmr3y4T1OcIu5aT8h2UTo39z0NMa4W3XG4VAC+uTs/luE4VUoXLnVLMOnWrc4eXiHkyMYvhtVerhw6pviXIaU6IoZrjx+4SLbtHIugYxGPetggk7baqvj35ag24X9KpDILRt/95pIZqnOT5r32iWc0ohHRWVDc6hES/j8DqFBvKHMA4fSY7hULaF2qk45LIZgVaSuH+IjwDL8d8fkUudiJiJj5to8urVMPjlwcifrmHKBYffW1PrOc4AMMTHQRusMC5E08AG5i/3pjcG6uDSehuZyvWw4Ec7o4Yi4k=

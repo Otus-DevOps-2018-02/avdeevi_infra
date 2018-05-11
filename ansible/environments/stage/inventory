@@ -1,0 +1,11 @@
+[app]
+appserver   ansible_host=35.187.183.109
+
+[db]
+dbserver    ansible_host=35.195.124.148
+
+[reddit:children]
+app
+db
+
+
