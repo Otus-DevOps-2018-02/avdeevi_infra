@@ -4,5 +4,5 @@
     - db
   become: true
   roles:
-   - avdeevi.db
+   - db
 
