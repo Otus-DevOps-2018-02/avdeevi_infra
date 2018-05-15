@@ -1,6 +1,7 @@
 ---
 - name: Configure hosts & deploy application
-  hosts: tag_reddit-app
+  hosts:
+     - app
   become: true
   roles:
     - app

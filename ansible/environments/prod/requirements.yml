@@ -2,3 +2,7 @@
 - src: jdauphant.nginx
   version: v2.13
 
+- src: https://github.com/avdeevi/avdeevi.db
+  version: master
+  name: db
+
